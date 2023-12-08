@@ -1398,22 +1398,22 @@ class Zone:
         >>> volvalue = volume
         >>> volume = 20
         """
-        if self._avr._model_series == MODEL_X40 and "PVOL" in self.values:
-            return self._get_integer("PVOL")
-        elif self._avr._model_series == MODEL_MDX:
-            return self._get_integer("VOL")
-        else:
-            return self.attenuation_to_volume(self.attenuation)
+        # if self._avr._model_series == MODEL_X40 and "PVOL" in self.values:
+        #     return self._get_integer("PVOL")
+        # elif self._avr._model_series == MODEL_MDX:
+        #     return self._get_integer("VOL")
+        # else:
+        return self.attenuation_to_volume(self.attenuation)
 
     @volume.setter
     def volume(self, value: int):
         if 0 <= value <= 100:
-            if self._avr._model_series == MODEL_X40:
-                self.command(f"PVOL{value}")
-            elif self._avr._model_series == MODEL_MDX:
-                self.command(f"VOL{value}")
-            else:
-                self.attenuation = self.volume_to_attenuation(value)
+            # if self._avr._model_series == MODEL_X40:
+            #     self.command(f"PVOL{value}")
+            # elif self._avr._model_series == MODEL_MDX:
+            #     self.command(f"VOL{value}")
+            # else:
+            self.attenuation = self.volume_to_attenuation(value)
 
     @property
     def volume_as_percentage(self) -> float:
