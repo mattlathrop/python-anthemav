@@ -270,7 +270,7 @@ class AVR(asyncio.Protocol):
         self._deviceinfo_received = asyncio.Event()
         self._alm_number = {"None": 0}
         self._available_input_numbers = []
-        self._attenuation_range = [-90.0, 0]
+        self._attenuation_range = [-90.0, -16]
         self.zones: Dict[int, Zone] = {1: Zone(self, 1)}
         self.values: Dict[str, str] = {}
 
