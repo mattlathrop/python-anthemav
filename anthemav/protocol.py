@@ -1352,10 +1352,10 @@ class Zone:
 
         returns an integer value representing volume
         """
-        try:
-            return int((round(2 * (float(value) - self._avr.min_attenuation)) / 2) / self._avr.attenuation_range * 100)
-        except ValueError:
-            return 0
+        # try:
+        #     return int((round(2 * (float(value) - self._avr.min_attenuation)) / 2) / self._avr.attenuation_range * 100)
+        # except ValueError:
+        return 0
 
     def volume_to_attenuation(self, value: int) -> float:
         """Convert a volume value to a native attenuation value.
@@ -1368,10 +1368,10 @@ class Zone:
 
         returns a float value representing attenuation in dB
         """
-        try:
-            return round(2 * (self._avr.min_attenuation + ((float(value) / 100) * self._avr.attenuation_range))) / 2
-        except ValueError:
-            return self._avr.min_attenuation
+        # try:
+        #     return round(2 * (self._avr.min_attenuation + ((float(value) / 100) * self._avr.attenuation_range))) / 2
+        # except ValueError:
+        return self._avr.min_attenuation
 
     @property
     def power(self) -> bool:
